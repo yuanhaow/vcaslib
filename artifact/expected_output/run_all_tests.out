@@ -1,0 +1,186 @@
+Testing Java implementations...
+Running Tests...
+[*] Testing VcasBatchBSTGC Batch Size 2 ...
+BATCHING DEGREE: 2
+InsertDeleteOneKey: OK
+InsertDeleteTwoKeys: OK
+InsertDeleteQuery: OK
+InsertDeleteQuery2: OK
+
+[*] Testing VcasBatchBSTGC Batch Size 16 ...
+BATCHING DEGREE: 16
+InsertDeleteOneKey: OK
+InsertDeleteTwoKeys: OK
+InsertDeleteQuery: OK
+InsertDeleteQuery2: OK
+
+[*] Testing VcasBatchBSTGC Batch Size 64 ...
+BATCHING DEGREE: 64
+InsertDeleteOneKey: OK
+InsertDeleteTwoKeys: OK
+InsertDeleteQuery: OK
+InsertDeleteQuery2: OK
+
+[*] Testing BST ...
+InsertDeleteOneKey: OK
+InsertDeleteTwoKeys: OK
+range query not supported
+range query not supported
+
+[*] Testing ChromaticBST ...
+InsertDeleteOneKey: OK
+InsertDeleteTwoKeys: OK
+range query not supported
+range query not supported
+
+[*] Testing BatchBST Batch Size 2 ...
+BATCHING DEGREE: 2
+InsertDeleteOneKey: OK
+InsertDeleteTwoKeys: OK
+range query not supported
+range query not supported
+
+[*] Testing BatchBST Batch Size 16 ...
+BATCHING DEGREE: 16
+InsertDeleteOneKey: OK
+InsertDeleteTwoKeys: OK
+range query not supported
+range query not supported
+
+[*] Testing BatchBST Batch Size 64 ...
+BATCHING DEGREE: 64
+InsertDeleteOneKey: OK
+InsertDeleteTwoKeys: OK
+range query not supported
+range query not supported
+
+[*] Testing PBST ...
+InsertDeleteOneKey: OK
+InsertDeleteTwoKeys: OK
+InsertDeleteQuery: OK
+InsertDeleteQuery2: OK
+
+[*] Testing BPBST Batch Size 2 ...
+InsertDeleteOneKey: OK
+InsertDeleteTwoKeys: OK
+InsertDeleteQuery: OK
+InsertDeleteQuery2: OK
+
+[*] Testing BPBST Batch Size 16 ...
+InsertDeleteOneKey: OK
+InsertDeleteTwoKeys: OK
+InsertDeleteQuery: OK
+InsertDeleteQuery2: OK
+
+[*] Testing BPBST Batch Size 64 ...
+InsertDeleteOneKey: OK
+InsertDeleteTwoKeys: OK
+InsertDeleteQuery: OK
+InsertDeleteQuery2: OK
+
+[*] Testing LFCA ...
+InsertDeleteOneKey: OK
+InsertDeleteTwoKeys: OK
+InsertDeleteQuery: OK
+InsertDeleteQuery2: OK
+
+[*] Testing ChromaticBatchBST Batch Size 2 ...
+BATCHING DEGREE: 2
+InsertDeleteOneKey: OK
+InsertDeleteTwoKeys: OK
+InsertDeleteQuery: OK
+InsertDeleteQuery2: OK
+BATCHING DEGREE: 2
+getSuccessorsTest: OK
+multiSearchTest: OK
+findIfTest: OK
+
+[*] Testing ChromaticBatchBST Batch Size 16 ...
+BATCHING DEGREE: 16
+InsertDeleteOneKey: OK
+InsertDeleteTwoKeys: OK
+InsertDeleteQuery: OK
+InsertDeleteQuery2: OK
+BATCHING DEGREE: 16
+getSuccessorsTest: OK
+multiSearchTest: OK
+findIfTest: OK
+
+[*] Testing ChromaticBatchBST Batch Size 64 ...
+BATCHING DEGREE: 64
+InsertDeleteOneKey: OK
+InsertDeleteTwoKeys: OK
+InsertDeleteQuery: OK
+InsertDeleteQuery2: OK
+BATCHING DEGREE: 64
+getSuccessorsTest: OK
+multiSearchTest: OK
+findIfTest: OK
+
+[*] Testing VcasChromaticBatchBSTGC Batch Size 2 ...
+BATCHING DEGREE: 2
+InsertDeleteOneKey: OK
+InsertDeleteTwoKeys: OK
+InsertDeleteQuery: OK
+InsertDeleteQuery2: OK
+BATCHING DEGREE: 2
+getSuccessorsTest: OK
+multiSearchTest: OK
+findIfTest: OK
+
+[*] Testing VcasChromaticBatchBSTGC Batch Size 16 ...
+BATCHING DEGREE: 16
+InsertDeleteOneKey: OK
+InsertDeleteTwoKeys: OK
+InsertDeleteQuery: OK
+InsertDeleteQuery2: OK
+BATCHING DEGREE: 16
+getSuccessorsTest: OK
+multiSearchTest: OK
+findIfTest: OK
+
+[*] Testing VcasChromaticBatchBSTGC Batch Size 64 ...
+BATCHING DEGREE: 64
+InsertDeleteOneKey: OK
+InsertDeleteTwoKeys: OK
+InsertDeleteQuery: OK
+InsertDeleteQuery2: OK
+BATCHING DEGREE: 64
+getSuccessorsTest: OK
+multiSearchTest: OK
+findIfTest: OK
+
+[*] Testing KIWI ...
+InsertDeleteOneKeyKiwi: OK
+InsertDeleteTwoKeysKiwi: OK
+InsertDeleteQueryKiwi: OK
+InsertDeleteQuery2Kiwi: OK
+
+[*] Testing SnapTree ...
+InsertDeleteOneKey: OK
+InsertDeleteTwoKeys: OK
+InsertDeleteQuery: OK
+InsertDeleteQuery2: OK
+
+[*] Testing KSTRQ ...
+InsertDeleteOneKey: OK
+InsertDeleteTwoKeys: OK
+InsertDeleteQuery: OK
+InsertDeleteQuery2: OK
+
+Finished testing Java implementations
+Testing C++ implementations...
+
+Testing VcasBST:
+Keysum Validation OK
+Structural validation OK
+
+Testing EpochBST:
+Keysum Validation OK
+Structural validation OK
+
+Testing BST:
+Keysum Validation OK
+Structural validation OK
+
+Finished testing C++ implementations

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# LD_PRELOAD=../lib/libjemalloc.so ./`hostname`.vcasbst.out -i 50 -d 50 -k 200 -rq 0 -rqsize 200 -t 5000 -p -nrq 1 -nwork 1
+
+# LD_PRELOAD=/usr/local/lib/libjemalloc.so.2 numactl -i all ./aware.aladdin.cs.cmu.edu.bst.rq_lockfree.out -i 50 -d 50 -k 200000 -rq 0 -rqsize 65536 -t 5000 -p -nrq 36 -nwork 36
+
+# make vcasbst
+# make bst.rq_unsafe
+# make bst.rq_lockfree
+
+for alg in bst.rq_lockfree # vcasbst bst.rq_unsafe 
+do
+  for rqsize in 8 64 256 1024 8192 65536 # 200000
+  do
+    for iteration in 1 2 3 4 5
+    do
+      command="./`hostname`.$alg.out -i 50 -d 50 -k 200000 -rq 0 -rqsize $rqsize -t 5000 -p -nrq 36 -nwork 36"
+      echo "Iteration: $iteration"
+      echo "$command"
+      LD_PRELOAD=`jemalloc-config --libdir`/libjemalloc.so.`jemalloc-config --revision` numactl -i all $command
+    done
+  done
+done

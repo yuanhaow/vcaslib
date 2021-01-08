@@ -1,0 +1,154 @@
+#!/bin/bash
+function do_recmem {
+    java_pid=`pgrep -n java`
+    #recorder="ps h -p $java_pid -o %mem,rssize,drs,vsize,size,sz,trs"
+    #recorder_2="free --mega | head -n 2 | tail -n 1 | cut -f 18 -d ' '"
+
+    echo $java_pid 1>&2
+    #top_result=`top -n 1 | head -n 8 | tail -n 1`
+    #echo $top_result 1>&2
+    #ps -p $java_pid -o rssize | head -n 1
+    echo -e TIME'\t'KB
+    i=1	# time counter
+    while [ 1 ]
+    do
+        java_pid=`pgrep -n java`
+        # if ! [[ -n "$java_pid" ]]; then
+        #     echo
+        # fi
+
+        if ! [ -z "$java_pid" ]; then
+            echo -ne $i'\t'
+            echo `ps h -p $java_pid -o rssize`
+            # >&2 echo "ASDFASDF: ps h -p $java_pid -o rssize"
+            # echo "ASDFASDF: ps h -p $java_pid -o rssize"
+            i=$((i+1))
+        fi
+        sleep 1
+    done
+}
+
+rm -rf build/*.csv
+
+######## ENTER PATH TO YOUR JAVA BINARY HERE
+java="java"
+
+RQcounts="0"
+#RQcounts="0 1 4 8"
+#threadcounts="1 2 4 8 16 32 64 80 128"
+#threadcounts="1 2 4 8 16 32 64 72 128"
+threadcounts="1 4"
+trials=1
+sec=3
+
+cd build
+opts="-server -ea -Xms1G -Xmx1G -javaagent:ObjectSizeFetcher.jar -Xbootclasspath/a:'../lib/scala-library.jar:../lib/deuceAgent.jar'"
+#opts="-server -d64 -Xms1G -Xmx1G -Xbootclasspath/p:'../lib/scala-library.jar:../lib/deuceAgent.jar'"
+#opts="-agentlib:hprof=file=hprof.txt,cpu=times -server -d64 -Xms8G -Xmx8G -Xbootclasspath/p:'../lib/scala-library.jar:../lib/deuceAgent.jar'"
+#opts="-Xprof -server -d64 -Xms8G -Xmx8G -Xbootclasspath/p:'../lib/scala-library.jar:../lib/deuceAgent.jar'"
+#opts="-XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints -server -d64 -Xms8G -Xmx8G -Xbootclasspath/p:'../lib/scala-library.jar:../lib/deuceAgent.jar'"
+#opts="-Xprof -XX:NativeMemoryTracking=detail -XX:+UnlockDiagnosticVMOptions -XX:+PrintNMTStatistics -XX:InitialHeapSize=3g -XX:+PrintGCDateStamps -XX:+PrintGC -server -d64 -Xms8G -Xmx8G -Xbootclasspath/p:'../lib/scala-library.jar:../lib/deuceAgent.jar'"
+#opts="-server -d64 -Xms200G -Xmx200G -Xbootclasspath/p:'../lib/scala-library.jar:../lib/deuceAgent.jar'"
+#opts="-server -d64 -XX:GCTimeRatio=10 -Xms200G -Xmx200G -verbose:gc -Xbootclasspath/p:'../lib/scala-library.jar:../lib/deuceAgent.jar'"
+#opts="-server -d64 -Xms200G -Xmx200G -verbose:gc -Xbootclasspath/p:'../lib/scala-library.jar:../lib/deuceAgent.jar'"
+
+dt=`date`
+echo $dt
+echo $dt > run.log
+
+# run tests
+command="$java $opts -jar experiments_instr.jar"
+echo "$command test"
+# echo "ASDFASDF 2"
+$command test
+
+## LOOP THROUGH ALL EXPERIMENTS TWICE; THE FIRST TIME COUNTING THEM, AND THE SECOND TIME PERFORMING THEM
+for counting in 0 1
+do
+    i=0
+
+    if [ "$counting" -eq "0" ]
+    then
+        echo "Counting experiments..."
+    else
+        printf "\n"
+        st=$SECONDS
+    fi
+
+    ## ALL EXPERIMENTS FOR NON-STM DATA STRUCTURES
+    #for keysratio in 10000_50_50 10000_0_0 10000_20_10 100_50_50 100_0_0 100_20_10 1000000_50_50 1000000_0_0 1000000_20_10
+    #for keysratio in 100_50_50 100_0_0 100_20_10
+    #for keysratio in 1000_35_15_50
+    for keysratio in 200_25_25_25_10 200_25_25_0_10
+    do
+        for algs in BatchBST_64 # KIWI_ # SnapTree_ KSTRQ_ # VcasBSTGC_ VcasChromaticBSTGC_ # BPBSTGC_16 VcasBatchBSTGC_16 VcasChromaticBatchBSTGC_64 # PBST_ BPBST_16 # KIWI_ VcasChromaticBatchBST_16 VcasChromaticBatchBST_64 ChromaticBatchBST_64 ChromaticBST_ ChromaticBatchBST_16 ChromaticBatchBST_64 VcasBatchBST_16 VcasBatchBST_64 BatchBST_8 BatchBST_128 VcasBST_ VcasIndirectBST_ PBST_ BPBST_16 BST_ LFCA_ #BPBST_64 BST_ PBST_ LFCA_ BPBST_16 BPBST_32 BPBST_64 KST_64
+        do
+            alg=`echo $algs | cut -f1 -d"_"`
+            param=`echo $algs | cut -f2 -d"_"`
+            keys=`echo $keysratio | cut -f1 -d"_"`
+            ins=`echo $keysratio | cut -f2 -d"_"`
+            del=`echo $keysratio | cut -f3 -d"_"`
+            rq=`echo $keysratio | cut -f4 -d"_"`
+            rqsize=`echo $keysratio | cut -f5 -d"_"`
+            if [ "$param" != "" ]; then
+                opt_param="-param-$param"
+                alg_string="$algs-$keysratio"
+            else
+                opt_param=""
+                alg_string="$alg-$keysratio"
+            fi
+
+            if [ "$counting" -eq "1" ]; then
+                do_recmem > memrec-$alg_string.csv &
+                do_recmem_PID=$!
+            fi
+
+            if [ "$alg" = "BST" ] || [ "$alg" = "BatchBST" ] || [ "$alg" = "ChromaticBST" ] || [ "$alg" = "ChromaticBatchBST" ]; then
+                 if [ "$rq" != "0" ]; then
+                     echo "skipping"
+                     continue;
+                 fi
+            fi
+
+            for RQers in $RQcounts
+            do
+                for threadNum in $threadcounts
+                do
+		            threads=$((RQers+threadNum))
+                    i=`expr $i + 1`
+                    if [ "$counting" -eq "0" ]; then echo "$i"; continue; fi
+
+                    #args="$threads $trials $sec $alg $opt_param -ins$ins -del$del -rq$rq -rqsize$rqsize -rqers$RQers -keys$keys -file-data-trials$i.csv"
+                    args="$threads $trials $sec $alg $opt_param -ins$ins -del$del -rq$rq -rqsize$rqsize -rqers$RQers -keys$keys -prefill -file-data-trials$i.csv"
+                    #command="perf stat -o perflog-$alg_string.txt --append -e cache-misses $java $opts -jar experiments_instr.jar"
+                    command="$java $opts -jar experiments_instr.jar"
+                    # echo "ASDFASDF"
+                    echo -n "-- ex$i: "
+                    echo `date`
+                    echo "$command $args"
+                    # echo "ASDFASDF 2"
+                    $command $args
+                    # echo "ASDFASDF 3"
+                    top -n 1 > top-trials$i.log
+
+                    elapsed=`expr $SECONDS - $st`
+                    avg=`expr $elapsed / $i + 1`
+                    expleft=`expr $maxi - $i`
+                    secleft=`expr $expleft \* $avg`
+                    msg="  after ${elapsed}s, $i finished (${avg}s each) and $expleft remaining (expected ${secleft}s)"
+                    echo $msg
+                    echo $msg >> run.log
+                done
+                if [ "$counting" -eq "1" ]; then
+                    kill $do_recmem_PID >/dev/null 2>&1
+                fi
+            done
+        done
+    done
+
+maxi=$i
+done
+
+dt=`date`
+echo $dt
+echo $dt >> run.log

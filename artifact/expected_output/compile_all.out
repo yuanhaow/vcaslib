@@ -1,0 +1,115 @@
+Compiling Java benchmarks...
+COMPILING JAVA CLASSES...
+javac --add-exports java.base/jdk.internal.vm.annotation=ALL-UNNAMED -g -d build -classpath lib/ctries2.jar:lib/deuceAgent.jar:lib/scala-library.jar ./src/algorithms/kiwi/ChunkIterator.java ./src/algorithms/kiwi/KiWi.java ./src/algorithms/kiwi/Compactor.java ./src/algorithms/kiwi/ChunkInt.java ./src/algorithms/kiwi/ThreadData.java ./src/algorithms/kiwi/Rebalancer.java ./src/algorithms/kiwi/KiWiMap.java ./src/algorithms/kiwi/util/CounterGenerator.java ./src/algorithms/kiwi/util/ScrambledZipfianGenerator.java ./src/algorithms/kiwi/util/IntegerGenerator.java ./src/algorithms/kiwi/util/UniqueRandomIntGenerator.java ./src/algorithms/kiwi/util/SkewedLatestGenerator.java ./src/algorithms/kiwi/util/CombinedGenerator.java ./src/algorithms/kiwi/util/Utils.java ./src/algorithms/kiwi/util/Pair.java ./src/algorithms/kiwi/util/Generator.java ./src/algorithms/kiwi/util/ZipfianGenerator.java ./src/algorithms/kiwi/KiWiMapChunkProf.java ./src/algorithms/kiwi/Chunk.java ./src/algorithms/kiwi/MultiChunkIterator.java ./src/algorithms/kiwi/DebugStats.java ./src/algorithms/kiwi/ScanIndex.java ./src/algorithms/kiwi/Parameters.java ./src/algorithms/kiwi/Cell.java ./src/algorithms/kiwi/KiWiMapVLK.java ./src/algorithms/kiwi/ScanIterator.java ./src/algorithms/kiwi/CompactorImpl.java ./src/algorithms/kiwi/CompositionalMap.java ./src/algorithms/kiwi/ChunkCell.java ./src/algorithms/efrbbst/LockFreeBatchBSTMap.java ./src/algorithms/efrbbst/LockFreeBSTMap.java ./src/algorithms/vcas/VNode.java ./src/algorithms/vcas/VcasBatchChromaticMapGC.java ./src/algorithms/vcas/Camera.java ./src/algorithms/vcas/VcasBatchBSTMapGC.java ./src/algorithms/lfca/AVLTreeMapSTD.java ./src/algorithms/lfca/SplitableAndJoinableMap.java ./src/algorithms/lfca/Stack.java ./src/algorithms/lfca/LockFreeImmutableTreapMapHolder.java ./src/algorithms/lfca/RangeUpdateMap.java ./src/algorithms/lfca/LockFreeImmTreapCATreeMapSTDR.java ./src/algorithms/lfca/SeqRWLock.java ./src/algorithms/lfca/LongStack.java ./src/algorithms/lfca/AnyKeyProviding.java ./src/algorithms/lfca/RangeQueryMap.java ./src/algorithms/lfca/Invalidatable.java ./src/algorithms/lfca/ImmutableTreapMap.java ./src/algorithms/kstrq/LockFreeKSTRQ.java ./src/algorithms/chromatic/LockFreeBatchChromaticMap.java ./src/algorithms/chromatic/LockFreeChromaticMap.java ./src/algorithms/snaptree/EpochNode.java ./src/algorithms/snaptree/SnapTreeMap.java ./src/algorithms/snaptree/CopyOnWriteManager.java ./src/algorithms/snaptree/Epoch.java ./src/algorithms/pnbbst/LockFreePBSTMap.java ./src/algorithms/pnbbst/LockFreeBPBSTMap.java ./src/adapters/LockFreeKSTRQAdapter.java ./src/adapters/LockFreeBPBSTAdapter.java ./src/adapters/LockFreeChromaticAdapter.java ./src/adapters/KiwiAdapter.java ./src/adapters/LockFreePBSTAdapter.java ./src/adapters/LockFreeBatchBSTAdapter.java ./src/adapters/SnapTreeAdapter.java ./src/adapters/LockFreeBatchChromaticAdapter.java ./src/adapters/LockFreeBSTAdapter.java ./src/adapters/VcasBatchBSTGCAdapter.java ./src/adapters/VcasBatchChromaticGCAdapter.java ./src/adapters/AbstractAdapter.java ./src/adapters/LFCAAdapter.java ./src/main/support/KSTNode.java ./src/main/support/NodeStats.java ./src/main/support/Factories.java ./src/main/support/ThreadID.java ./src/main/support/SequentialStructure.java ./src/main/support/MemoryStats.java ./src/main/support/IntPair.java ./src/main/support/Random.java ./src/main/support/SequentialPrefillStructure.java ./src/main/support/Element.java ./src/main/support/OperationInterface.java ./src/main/support/Reclaimable.java ./src/main/support/NoPrefillStructure.java ./src/main/support/SetInterface.java ./src/main/support/TreeFactory.java ./src/main/support/Tests.java ./src/main/support/OperationListener.java ./src/main/support/Epoch.java ./src/main/Main.java ./src/main/Globals.java
+./src/algorithms/kiwi/Chunk.java:4: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+./src/algorithms/lfca/SeqRWLock.java:26: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+./src/algorithms/kiwi/Chunk.java:41: warning: Unsafe is internal proprietary API and may be removed in a future release
+	static final Unsafe					unsafe;
+	             ^
+./src/algorithms/kiwi/Chunk.java:359: warning: Unsafe is internal proprietary API and may be removed in a future release
+			Constructor<Unsafe> unsafeConstructor = Unsafe.class.getDeclaredConstructor();
+			            ^
+./src/algorithms/kiwi/Chunk.java:359: warning: Unsafe is internal proprietary API and may be removed in a future release
+			Constructor<Unsafe> unsafeConstructor = Unsafe.class.getDeclaredConstructor();
+			                                        ^
+./src/algorithms/kiwi/Chunk.java:522: warning: Unsafe is internal proprietary API and may be removed in a future release
+			Unsafe.ARRAY_INT_BASE_OFFSET + (item + offset) * Unsafe.ARRAY_INT_INDEX_SCALE,
+			^
+./src/algorithms/kiwi/Chunk.java:522: warning: Unsafe is internal proprietary API and may be removed in a future release
+			Unsafe.ARRAY_INT_BASE_OFFSET + (item + offset) * Unsafe.ARRAY_INT_INDEX_SCALE,
+			                                                 ^
+./src/algorithms/kiwi/Chunk.java:905: warning: Unsafe is internal proprietary API and may be removed in a future release
+				Unsafe.ARRAY_OBJECT_BASE_OFFSET + curr * Unsafe.ARRAY_OBJECT_INDEX_SCALE, currData,
+				^
+./src/algorithms/kiwi/Chunk.java:905: warning: Unsafe is internal proprietary API and may be removed in a future release
+				Unsafe.ARRAY_OBJECT_BASE_OFFSET + curr * Unsafe.ARRAY_OBJECT_INDEX_SCALE, currData,
+				                                         ^
+./src/algorithms/lfca/SeqRWLock.java:44: warning: Unsafe is internal proprietary API and may be removed in a future release
+    private static final Unsafe unsafe;
+                         ^
+./src/algorithms/lfca/SeqRWLock.java:53: warning: Unsafe is internal proprietary API and may be removed in a future release
+            Field theUnsafe = Unsafe.class.getDeclaredField("theUnsafe");
+                              ^
+./src/algorithms/lfca/SeqRWLock.java:55: warning: Unsafe is internal proprietary API and may be removed in a future release
+            unsafe = (Unsafe) theUnsafe.get(null);
+                      ^
+Note: ./src/main/Main.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+12 warnings
+BUILDING JAR FILE (with manifest)...
+DONE.
+Finished compiling Java benchmarks
+Compiling C++ benchmarks...
+g++-9 -std=c++11 -mcx16 -O3 -g -DNDEBUG -DLOGICAL_PROCESSORS=128 -DMAX_TID_POW2=128 -DCPU_FREQ_GHZ=2.4 -DCPU_FREQ=2.4 -DUSE_GSTATS -DUSE_SIMPLIFIED_HASHLIST -DRWLOCK_FAVOR_READERS -DDEBUG=if\(0\) -DDEBUG1=if\(0\) -DDEBUG2=if\(0\) -DMEMORY_STATS=if\(1\) -DMEMORY_STATS2=if\(1\) -DINSERT_FUNC=insertIfAbsent -o hao-XPS-13-9360.vcasbst.out  -DVCASBST -DRQ_VCAS  main.cpp -L../lib -I../ -I../bst -I../bslack_reuse -I../citrus -I../common -I../dcss_plus -I../descriptors -I../include -I../lazylist -I../lockfree_list -I../lockfree_skiplist -I../skiplist_lock -I../microbench -I../recordmgr -I../rlu -I../rlu_citrus -I../rlu_linked_list -I../rq -I../rq/snapcollector -lpthread -ldl -lnuma
+In file included from ../bst/vcas_bst.h:20,
+                 from ../bst/vcas_bst_impl.h:2,
+                 from data_structures.h:91,
+                 from main.cpp:51:
+../bst/vcas_node.h: In function ‘std::ostream& vcas_bst_ns::operator<<(std::ostream&, const vcas_bst_ns::Node<K, V>&)’:
+../bst/vcas_node.h:42:72: warning: no return statement in function returning non-void [-Wreturn-type]
+   42 |         friend ostream& operator<<(ostream& os, const Node<K,V>& obj) {}
+      |                                                                        ^
+In file included from data_structures.h:91,
+                 from main.cpp:51:
+../bst/vcas_bst_impl.h: In instantiation of ‘int vcas_bst_ns::vcas_bst<K, V, Compare, RecManager>::help(int, tagptr_t, vcas_bst_ns::SCXRecord<K, V>*, bool) [with K = long long int; V = long long int; Compare = std::less<long long int>; RecManager = record_manager<reclaimer_debra<long long int>, allocator_new_segregated<long long int>, pool_none<long long int>, vcas_bst_ns::Node<long long int, long long int> >; tagptr_t = long int]’:
+../bst/vcas_bst_impl.h:491:17:   required from ‘bool vcas_bst_ns::vcas_bst<K, V, Compare, RecManager>::scx(int, vcas_bst_ns::ReclamationInfo<K, V>*, vcas_bst_ns::Node<K, V>* volatile*, vcas_bst_ns::Node<K, V>*, vcas_bst_ns::Node<K, V>* const*, vcas_bst_ns::Node<K, V>* const*) [with K = long long int; V = long long int; Compare = std::less<long long int>; RecManager = record_manager<reclaimer_debra<long long int>, allocator_new_segregated<long long int>, pool_none<long long int>, vcas_bst_ns::Node<long long int, long long int> >]’
+../bst/vcas_bst_impl.h:383:23:   required from ‘bool vcas_bst_ns::vcas_bst<K, V, Compare, RecManager>::updateErase_search_llx_scx(vcas_bst_ns::ReclamationInfo<K, V>*, int, void**, void**) [with K = long long int; V = long long int; Compare = std::less<long long int>; RecManager = record_manager<reclaimer_debra<long long int>, allocator_new_segregated<long long int>, pool_none<long long int>, vcas_bst_ns::Node<long long int, long long int> >]’
+../bst/vcas_bst_impl.h:224:20:   required from ‘const std::pair<V, bool> vcas_bst_ns::vcas_bst<K, V, Compare, RecManager>::erase(int, const K&) [with K = long long int; V = long long int; Compare = std::less<long long int>; RecManager = record_manager<reclaimer_debra<long long int>, allocator_new_segregated<long long int>, pool_none<long long int>, vcas_bst_ns::Node<long long int, long long int> >]’
+main.cpp:170:17:   required from here
+../bst/vcas_bst_impl.h:554:104: warning: taking address of packed member of ‘vcas_bst_ns::SCXRecord<long long int, long long int>::<unnamed union>::<unnamed struct>’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+  554 |     rqProvider->linearize_update_at_cas(tid, snap->c.field, snap->c.nodes[1], snap->c.newNode, snap->c.insertedNodes, snap->c.deletedNodes);
+      |                                                                                                ~~~~~~~~^~~~~~~~~~~~~
+../bst/vcas_bst_impl.h:554:127: warning: taking address of packed member of ‘vcas_bst_ns::SCXRecord<long long int, long long int>::<unnamed union>::<unnamed struct>’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+  554 |     rqProvider->linearize_update_at_cas(tid, snap->c.field, snap->c.nodes[1], snap->c.newNode, snap->c.insertedNodes, snap->c.deletedNodes);
+      |                                                                                                                       ~~~~~~~~^~~~~~~~~~~~
+g++-9 -std=c++11 -mcx16 -O3 -g -DNDEBUG -DLOGICAL_PROCESSORS=128 -DMAX_TID_POW2=128 -DCPU_FREQ_GHZ=2.4 -DCPU_FREQ=2.4 -DUSE_GSTATS -DUSE_SIMPLIFIED_HASHLIST -DRWLOCK_FAVOR_READERS -DDEBUG=if\(0\) -DDEBUG1=if\(0\) -DDEBUG2=if\(0\) -DMEMORY_STATS=if\(1\) -DMEMORY_STATS2=if\(1\) -DINSERT_FUNC=insertIfAbsent -o hao-XPS-13-9360.bst.rq_unsafe.out  -DBST -DRQ_UNSAFE  main.cpp -L../lib -I../ -I../bst -I../bslack_reuse -I../citrus -I../common -I../dcss_plus -I../descriptors -I../include -I../lazylist -I../lockfree_list -I../lockfree_skiplist -I../skiplist_lock -I../microbench -I../recordmgr -I../rlu -I../rlu_citrus -I../rlu_linked_list -I../rq -I../rq/snapcollector -lpthread -ldl -lnuma
+In file included from ../bst/bst.h:26,
+                 from ../bst/bst_impl.h:8,
+                 from data_structures.h:70,
+                 from main.cpp:51:
+../bst/node.h: In function ‘std::ostream& bst_ns::operator<<(std::ostream&, const bst_ns::Node<K, V>&)’:
+../bst/node.h:46:76: warning: no return statement in function returning non-void [-Wreturn-type]
+   46 |             friend ostream& operator<<(ostream& os, const Node<K,V>& obj) {}
+      |                                                                            ^
+In file included from data_structures.h:70,
+                 from main.cpp:51:
+../bst/bst_impl.h: In instantiation of ‘int bst_ns::bst<K, V, Compare, RecManager>::help(int, tagptr_t, bst_ns::SCXRecord<K, V>*, bool) [with K = long long int; V = long long int; Compare = std::less<long long int>; RecManager = record_manager<reclaimer_debra<long long int>, allocator_new_segregated<long long int>, pool_none<long long int>, bst_ns::Node<long long int, long long int> >; tagptr_t = long int]’:
+../bst/bst_impl.h:483:17:   required from ‘bool bst_ns::bst<K, V, Compare, RecManager>::scx(int, bst_ns::ReclamationInfo<K, V>*, bst_ns::Node<K, V>* volatile*, bst_ns::Node<K, V>*, bst_ns::Node<K, V>* const*, bst_ns::Node<K, V>* const*) [with K = long long int; V = long long int; Compare = std::less<long long int>; RecManager = record_manager<reclaimer_debra<long long int>, allocator_new_segregated<long long int>, pool_none<long long int>, bst_ns::Node<long long int, long long int> >]’
+../bst/bst_impl.h:375:23:   required from ‘bool bst_ns::bst<K, V, Compare, RecManager>::updateErase_search_llx_scx(bst_ns::ReclamationInfo<K, V>*, int, void**, void**) [with K = long long int; V = long long int; Compare = std::less<long long int>; RecManager = record_manager<reclaimer_debra<long long int>, allocator_new_segregated<long long int>, pool_none<long long int>, bst_ns::Node<long long int, long long int> >]’
+../bst/bst_impl.h:216:20:   required from ‘const std::pair<V, bool> bst_ns::bst<K, V, Compare, RecManager>::erase(int, const K&) [with K = long long int; V = long long int; Compare = std::less<long long int>; RecManager = record_manager<reclaimer_debra<long long int>, allocator_new_segregated<long long int>, pool_none<long long int>, bst_ns::Node<long long int, long long int> >]’
+main.cpp:170:17:   required from here
+../bst/bst_impl.h:546:104: warning: taking address of packed member of ‘bst_ns::SCXRecord<long long int, long long int>::<unnamed union>::<unnamed struct>’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+  546 |     rqProvider->linearize_update_at_cas(tid, snap->c.field, snap->c.nodes[1], snap->c.newNode, snap->c.insertedNodes, snap->c.deletedNodes);
+      |                                                                                                ~~~~~~~~^~~~~~~~~~~~~
+../bst/bst_impl.h:546:127: warning: taking address of packed member of ‘bst_ns::SCXRecord<long long int, long long int>::<unnamed union>::<unnamed struct>’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+  546 |     rqProvider->linearize_update_at_cas(tid, snap->c.field, snap->c.nodes[1], snap->c.newNode, snap->c.insertedNodes, snap->c.deletedNodes);
+      |                                                                                                                       ~~~~~~~~^~~~~~~~~~~~
+g++-9 -std=c++11 -mcx16 -O3 -g -DNDEBUG -DLOGICAL_PROCESSORS=128 -DMAX_TID_POW2=128 -DCPU_FREQ_GHZ=2.4 -DCPU_FREQ=2.4 -DUSE_GSTATS -DUSE_SIMPLIFIED_HASHLIST -DRWLOCK_FAVOR_READERS -DDEBUG=if\(0\) -DDEBUG1=if\(0\) -DDEBUG2=if\(0\) -DMEMORY_STATS=if\(1\) -DMEMORY_STATS2=if\(1\) -DINSERT_FUNC=insertIfAbsent -o hao-XPS-13-9360.bst.rq_lockfree.out  -DBST -DRQ_LOCKFREE  main.cpp -L../lib -I../ -I../bst -I../bslack_reuse -I../citrus -I../common -I../dcss_plus -I../descriptors -I../include -I../lazylist -I../lockfree_list -I../lockfree_skiplist -I../skiplist_lock -I../microbench -I../recordmgr -I../rlu -I../rlu_citrus -I../rlu_linked_list -I../rq -I../rq/snapcollector -lpthread -ldl -lnuma
+In file included from ../bst/bst.h:26,
+                 from ../bst/bst_impl.h:8,
+                 from data_structures.h:70,
+                 from main.cpp:51:
+../bst/node.h: In function ‘std::ostream& bst_ns::operator<<(std::ostream&, const bst_ns::Node<K, V>&)’:
+../bst/node.h:69:76: warning: no return statement in function returning non-void [-Wreturn-type]
+   69 |             friend ostream& operator<<(ostream& os, const Node<K,V>& obj) {}
+      |                                                                            ^
+In file included from data_structures.h:70,
+                 from main.cpp:51:
+../bst/bst_impl.h: In instantiation of ‘int bst_ns::bst<K, V, Compare, RecManager>::help(int, tagptr_t, bst_ns::SCXRecord<K, V>*, bool) [with K = long long int; V = long long int; Compare = std::less<long long int>; RecManager = record_manager<reclaimer_debra<long long int>, allocator_new_segregated<long long int>, pool_none<long long int>, bst_ns::Node<long long int, long long int> >; tagptr_t = long int]’:
+../bst/bst_impl.h:483:17:   required from ‘bool bst_ns::bst<K, V, Compare, RecManager>::scx(int, bst_ns::ReclamationInfo<K, V>*, bst_ns::Node<K, V>* volatile*, bst_ns::Node<K, V>*, bst_ns::Node<K, V>* const*, bst_ns::Node<K, V>* const*) [with K = long long int; V = long long int; Compare = std::less<long long int>; RecManager = record_manager<reclaimer_debra<long long int>, allocator_new_segregated<long long int>, pool_none<long long int>, bst_ns::Node<long long int, long long int> >]’
+../bst/bst_impl.h:375:23:   required from ‘bool bst_ns::bst<K, V, Compare, RecManager>::updateErase_search_llx_scx(bst_ns::ReclamationInfo<K, V>*, int, void**, void**) [with K = long long int; V = long long int; Compare = std::less<long long int>; RecManager = record_manager<reclaimer_debra<long long int>, allocator_new_segregated<long long int>, pool_none<long long int>, bst_ns::Node<long long int, long long int> >]’
+../bst/bst_impl.h:216:20:   required from ‘const std::pair<V, bool> bst_ns::bst<K, V, Compare, RecManager>::erase(int, const K&) [with K = long long int; V = long long int; Compare = std::less<long long int>; RecManager = record_manager<reclaimer_debra<long long int>, allocator_new_segregated<long long int>, pool_none<long long int>, bst_ns::Node<long long int, long long int> >]’
+main.cpp:170:17:   required from here
+../bst/bst_impl.h:546:104: warning: taking address of packed member of ‘bst_ns::SCXRecord<long long int, long long int>::<unnamed union>::<unnamed struct>’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+  546 |     rqProvider->linearize_update_at_cas(tid, snap->c.field, snap->c.nodes[1], snap->c.newNode, snap->c.insertedNodes, snap->c.deletedNodes);
+      |                                                                                                ~~~~~~~~^~~~~~~~~~~~~
+../bst/bst_impl.h:546:127: warning: taking address of packed member of ‘bst_ns::SCXRecord<long long int, long long int>::<unnamed union>::<unnamed struct>’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+  546 |     rqProvider->linearize_update_at_cas(tid, snap->c.field, snap->c.nodes[1], snap->c.newNode, snap->c.insertedNodes, snap->c.deletedNodes);
+      |                                                                                                                       ~~~~~~~~^~~~~~~~~~~~
+Finished compiling C++ benchmarks
