@@ -32,7 +32,6 @@ query_types = [" -findif -rqsize128 ", " -succ -rqsize128 ", " -succ -rqsize1 ",
 # graph.plot_java_multipoint_graphs(results_file_name, graphfile, graphtitle)
 
 numactl = "numactl -i all "
-numactl = ""
 cmdbase = "java -server -Xms" + JVM_mem_size + " -Xmx" + JVM_mem_size + " -Xbootclasspath/a:'java/lib/scala-library.jar:java/lib/deuceAgent.jar' -jar java/build/experiments_instr.jar "
 
 # delete previous results

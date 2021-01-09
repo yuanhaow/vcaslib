@@ -35,7 +35,6 @@ datastructures = ["vcasbst.out", "bst.rq_lockfree.out", "bst.rq_unsafe.out"]
 
 jemalloc = "LD_PRELOAD=`jemalloc-config --libdir`/libjemalloc.so.`jemalloc-config --revision` "
 numactl = "numactl -i all "
-numactl = ""
 cmdbase = "./cpp/microbench/" + socket.gethostname() + "."
 
 os.system("rm -rf cpp/microbench/results/*.out")

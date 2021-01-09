@@ -40,7 +40,6 @@ datastructures = ["KIWI",
 # "ChromaticBatchBST -param-64", "BatchBST -param-64"
 
 numactl = "numactl -i all "
-numactl = ""
 cmdbase = "java -server -Xms" + JVM_mem_size + " -Xmx" + JVM_mem_size + " -Xbootclasspath/a:'java/lib/scala-library.jar:java/lib/deuceAgent.jar' -jar java/build/experiments_instr.jar "
 
 # delete previous results

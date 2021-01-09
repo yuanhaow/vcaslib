@@ -780,37 +780,35 @@ public class Main {
             threadsKeysum += workers.get(i).getKeysum();
         }
         //System.out.println("tree.supportsKeysum() = " + tree.supportsKeysum());
-        if ((long) ex.maxkey > 5000000) {
-            System.out.println("Tree too large, skipping keysum validation");
-        } else if (tree.supportsKeysum()) {
-            // long ntrueins = 0, ntruedel = 0;
-            // for (Worker w : workers) {
-            //     ntrueins += w.getTrueIns();
-            //     ntruedel += w.getTrueDel();
-            // }
-            // long treesize = tree.size();
-            // if(ntrueins - ntruedel != treesize)
-            //     System.out.println("==================== ERROR: expected_size=" + (ntrueins - ntruedel) + " does not match tree.size()=" + treesize + " =======================");
-            // else
-            //     System.out.println("Size checksum validation PASSED (size=" + treesize + ").");
-            ThreadID.threadID.set(0);
-            long dsKeysum = tree.getKeysum();
-            if (dsKeysum != threadsKeysum) {
-                //throw new RuntimeException("threadsKeysum=" + threadsKeysum + " does not match dsKeysum=" + dsKeysum);
-                System.out.println("==================== ERROR: threadsKeysum=" + threadsKeysum + " does not match dsKeysum=" + dsKeysum + " =======================");
+        
+        if(!print_memory_usage) {
+            if ((long) ex.maxkey > 5000000) {
+                System.out.println("Tree too large, skipping keysum validation");
+            } else if (tree.supportsKeysum()) {
+                // long ntrueins = 0, ntruedel = 0;
+                // for (Worker w : workers) {
+                //     ntrueins += w.getTrueIns();
+                //     ntruedel += w.getTrueDel();
+                // }
+                // long treesize = tree.size();
+                // if(ntrueins - ntruedel != treesize)
+                //     System.out.println("==================== ERROR: expected_size=" + (ntrueins - ntruedel) + " does not match tree.size()=" + treesize + " =======================");
+                // else
+                //     System.out.println("Size checksum validation PASSED (size=" + treesize + ").");
+                ThreadID.threadID.set(0);
+                long dsKeysum = tree.getKeysum();
+                if (dsKeysum != threadsKeysum) {
+                    //throw new RuntimeException("threadsKeysum=" + threadsKeysum + " does not match dsKeysum=" + dsKeysum);
+                    System.out.println("==================== ERROR: threadsKeysum=" + threadsKeysum + " does not match dsKeysum=" + dsKeysum + " =======================");
+                } else {
+                    System.out.println("Key checksum validation PASSED (checksum=" + dsKeysum + ", size=" + tree.size() + ").");
+                    //tree.debugPrint();
+                }
             } else {
-                System.out.println("Key checksum validation PASSED (checksum=" + dsKeysum + ", size=" + tree.size() + ").");
-                //tree.debugPrint();
+                // possibly add an unobtrusive warning that checksums are not computed for this data structure
+                System.out.println("NOTICE: the data structure " + tree.getClass().getName() + " does not support key checksum validation.");
             }
-        } else {
-            // possibly add an unobtrusive warning that checksums are not computed for this data structure
-            System.out.println("NOTICE: the data structure " + tree.getClass().getName() + " does not support key checksum validation.");
         }
-        // long sum = 0;
-        // for(int i = 0; i < 150; i++) {
-        //     sum += Camera.camera.backoffArray[i*Camera.PADDING];
-        // }
-        // System.out.println(sum);
 
         // produce output
         if (!discardResults) {
