@@ -7,6 +7,8 @@ Constant-Time Snapshots with Applications to Concurrent Data Structures \
 Yuanhao Wei, Naama Ben-David, Guy E. Blelloch, Panagiota Fatourou, Eric Ruppert, Yihan Sun \
 PPoPP 2021
 
+An up-to-date implementation of the techniques in this paper can be found here: https://github.com/yuanhaow/vcaslib.
+
 ## Software Requirements
 
 Our artifact is expected to run correctly under a variety of Linux x86\_64 distributions. Our Java experiments require OpenJDK 11 and our C++ experiments were compiled with g++ 9.
