@@ -648,7 +648,7 @@ def plot_java_overhead_graphs(inputFile, outputFile, graphtitle):
   # offset = width/len(queryTypes)
   curpos = x - len(series)/2.0*width
   i = 0
-  for alg in series:
+  for alg in algs:
     if len(series[alg]) == 0:
       continue
     # print(alg)
